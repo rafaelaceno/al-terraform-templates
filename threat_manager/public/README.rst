@@ -34,18 +34,10 @@ Variables
   * target_region : target region to deploy this appliance, i.e. us-central1
   * target_zone : zone for the TM appliance, i.e. us-central1-a
   * network_name : network name where the TM appliance will be deployed
-  * sub_network : subnet name inside the network 
+  * sub_network : subnet name inside the network
   * monitoring_CIDR : network CIDR for the TM appliance (not subnet / sub network CIDR)
   * claim_CIDR : source IP CIDR that is allowed to perform web claim on port 80, i.e. 0.0.0.0/0 or specific subnet range
   * instance_name : free form label to name the TM appliance
   * instance_type : minimum size is n1-standard4
-  * image_name : image name for Threat Appliance  
+  * image_name : image name for Threat Appliance
   * tag_name : target tag to be assigned for firewall rules
-
-License and Authors
-===================
-License:
-Distributed under the Apache 2.0 license.
-
-Authors: 
-Welly Siauw (welly.siauw@alertlogic.com)
