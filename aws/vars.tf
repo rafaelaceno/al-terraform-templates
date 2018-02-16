@@ -27,6 +27,7 @@ variable "create_eip" {
 }
 
 # Latest AMI as per Oct 2017, contact AlertLogic (support@alertlogic.com) if you want to see the latest AMI per region
+# Tag to ver: P12
 variable "aws_amis" {
   default = {
 		ap-south-1 = "ami-f6ccb499"
