@@ -13,30 +13,6 @@ resource "aws_security_group" "tmc_sg" {
 
 	ingress	{
 		protocol = "tcp"
-		cidr_blocks = ["204.110.218.96/27"]
-		from_port = 22
-		to_port = 22
-	}
-	ingress	{
-		protocol = "tcp"
-		cidr_blocks = ["204.110.219.96/27"]
-		from_port = 22
-		to_port = 22
-	}
-	ingress	{
-		protocol = "tcp"
-		cidr_blocks = ["208.71.209.32/27"]
-		from_port = 22
-		to_port = 22
-	}
-	ingress	{
-		protocol = "tcp"
-		cidr_blocks = ["185.54.124.0/24"]
-		from_port = 22
-		to_port = 22
-	}
-	ingress	{
-		protocol = "tcp"
 		cidr_blocks = ["${var.monitoringCIDR}"]
 		from_port = 7777
 		to_port = 7777

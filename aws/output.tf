@@ -1,6 +1,6 @@
 # Outputs
 output "Threat Manager public IP" {
-	value = "${aws_eip.tmc.public_ip}"
+	value = "${aws_eip.tmc.*.public_ip}"
 }
 
 output "Threat Manager private IP" {
