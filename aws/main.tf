@@ -1,9 +1,9 @@
-# Data sources
+// Data sources
 data "aws_region" "current" {
   current = true
 }
 
-# Create a security group policy and setup rules for Threat Manager appliance
+// Create a security group policy and setup rules for Threat Manager appliance
 resource "aws_security_group" "tmc_sg" {
 	name = "Alert Logic Threat Manager Security Group"
 	tags {
@@ -103,7 +103,7 @@ resource "aws_security_group" "tmc_sg" {
 	}
 }
 
-# Launch a Threat Manager instance from a shared AMI
+// Launch a Threat Manager instance from a shared AMI
 resource "aws_instance" "tmc" {
 	ami = "${lookup(var.aws_amis, data.aws_region.current.name)}"
 	instance_type = "${var.instance_type}"
@@ -115,7 +115,7 @@ resource "aws_instance" "tmc" {
 	depends_on = ["aws_security_group.tmc_sg"]
 }
 
-# Allocate a new Elastic IP to be associated with the new Threat Manager instance
+// Allocate a new Elastic IP to be associated with the new Threat Manager instance
 resource "aws_eip" "tmc" {
 	count = "${var.create_eip}"
 	instance = "${aws_instance.tmc.id}"

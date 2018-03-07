@@ -8,7 +8,7 @@ variable "subnet_id" {
 }
 
 variable "instance_type" {
-	description = "EC2 Instance Type Threat Manager will be spun up as (Supported: c3.large, c3.xlarge, c3.2xlarge, c4.large, c4.xlarge, c4.2xlarge)."
+	description = "EC2 Instance Type Threat Manager will be spun up as (Supported: c4.large, c4.xlarge, c4.2xlarge, c5.large, c5.xlarge, c5.2xlarge)."
 }
 
 variable "tag_name" {
@@ -26,23 +26,25 @@ variable "create_eip" {
 	description = "Set value to 1(true) if you want to deploy it on public subnet, otherwise set to 0(false)"
 }
 
-# Latest AMI as per Oct 2017, contact AlertLogic (support@alertlogic.com) if you want to see the latest AMI per region
-# Tag to ver: P12
+# Latest AMI as per Mar 2018, contact AlertLogic (support@alertlogic.com) if you want to see the latest AMI per region
+# Tag to ver: P13
 variable "aws_amis" {
   default = {
-		ap-south-1 = "ami-f6ccb499"
-		eu-west-2 = "ami-321d0c56"
-		eu-west-1 = "ami-b6c52ecf"
-		ap-northeast-2 = "ami-26a17848"
-		ap-northeast-1 = "ami-dd17f5bb"
-		sa-east-1 = "ami-a9b8cfc5"
-		ca-central-1 = "ami-9e0db2fa"
-		ap-southeast-1 = "ami-a4d24fc7"
-		ap-southeast-2 = "ami-9dbda2fe"
-		eu-central-1 = "ami-909438ff"
-		us-east-1 = "ami-c2a8f7b9"
-		us-east-2 = "ami-322f0f57"
-		us-west-1 = "ami-8b765eeb"
-		us-west-2 = "ami-cb9f85b2"
+		ap-south-1 = "ami-944916fb"
+		eu-west-3 = "ami-2d66d050"
+		eu-west-2 = "ami-c66480a1"
+		eu-west-1 = "ami-c57336bc"
+		ap-northeast-2 = "ami-e768c589"
+		ap-northeast-1 = "ami-f07e3896"
+		sa-east-1 = "ami-72115a1e"
+		ca-central-1 = "ami-6d880f09"
+		ap-southeast-1 = "ami-1c1e5560"
+		ap-southeast-2 = "ami-3edd1b5c"
+		eu-central-1 = "ami-aa92ffc5"
+		us-east-1 = "ami-5934df24"
+		us-east-2 = "ami-e5fdca80"
+		us-west-1 = "ami-87e6ede7"
+		us-west-2 = "ami-5b9e1623"
+		us-gov-west-1 = "ami-89df5ce8"
   }
 }

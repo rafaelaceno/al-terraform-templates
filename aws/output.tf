@@ -1,4 +1,4 @@
-# Outputs
+// Outputs
 output "Threat Manager public IP" {
 	value = "${aws_eip.tmc.*.public_ip}"
 }
