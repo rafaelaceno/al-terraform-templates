@@ -105,20 +105,23 @@ resource "aws_security_group" "tmc_sg" {
 
 // Launch a Threat Manager instance from a shared AMI
 resource "aws_instance" "tmc" {
-	ami = "${lookup(var.aws_amis, data.aws_region.current.name)}"
-	instance_type = "${var.instance_type}"
-	subnet_id = "${var.subnet_id}"
+	depends_on             = ["aws_security_group.tmc_sg"]
+	count                  = "${var.alertlogic_enabled == 1 ? 1 : 0}"
+	ami                    = "${lookup(var.aws_amis, data.aws_region.current.name)}"
+	instance_type          = "${var.instance_type}"
+	subnet_id              = "${var.subnet_id}"
 	vpc_security_group_ids = ["${aws_security_group.tmc_sg.id}"]
+
 	tags {
 		Name = "${var.tag_name}"
+		env  = "${var.tag_env}"
 	}
-	depends_on = ["aws_security_group.tmc_sg"]
 }
 
 // Allocate a new Elastic IP to be associated with the new Threat Manager instance
 resource "aws_eip" "tmc" {
-	count = "${var.create_eip}"
-	instance = "${aws_instance.tmc.id}"
-	vpc      = true
 	depends_on = ["aws_instance.tmc"]
+	count      = "${var.alertlogic_enabled == 1 ? var.create_eip : 0}"
+	instance   = "${aws_instance.tmc.id}"
+	vpc        = true
 }
