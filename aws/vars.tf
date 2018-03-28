@@ -14,6 +14,12 @@ variable "instance_type" {
 variable "tag_name" {
 	description = "Provide a tag name for your Threat Manager instance."
 }
+
+variable "tag_env" {
+	description = "Provide a tag env for your Threat Manager instance."
+	default     = "alertlogic"
+}
+
 variable "claimCIDR" {
 	description = "CIDR netblock which will be submitting the web form that the appliance serves for claiming over port 80 (This rule can be removed after the appliance has been claimed)."
 }
@@ -24,6 +30,11 @@ variable "monitoringCIDR" {
 
 variable "create_eip" {
 	description = "Set value to 1(true) if you want to deploy it on public subnet, otherwise set to 0(false)"
+}
+
+variable "alertlogic_enabled" {
+	description = "Set value to 1(true) if you want to deploy alertlogic tmc instance, otherwise set to 0(false)"
+	default     = "1"
 }
 
 # Latest AMI as per Mar 2018, contact AlertLogic (support@alertlogic.com) if you want to see the latest AMI per region
