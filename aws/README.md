@@ -35,6 +35,7 @@ Variables
   * subnet_id : ID of a subnet, with a default route to an IGW or NAT GW, into which Threat Manager will be deployed
   * vpc_id : VPC into which Threat Manager will be deployed
   * create_eip : Set value to 1(true) if you want to deploy it on public subnet, otherwise set to 0(false)
+  * alertlogic_enabled : Set value to 1(true) to launch the appliance, or set to 0(false) to terminate the appliance
 
 Warning
 ----------
