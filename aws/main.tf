@@ -11,6 +11,27 @@ resource "aws_security_group" "tmc_sg" {
 	}
 	vpc_id = "${var.vpc_id}"
 
+  // pwaf ingress rules (uncomment to apply rules)
+  /*
+  ingress	{
+    protocol = "tcp"
+    cidr_blocks = ["204.110.218.96/27"]
+    from_port = 4849
+    to_port = 4849
+  }
+  ingress	{
+    protocol = "tcp"
+    cidr_blocks = ["204.110.219.96/27"]
+    from_port = 4849
+    to_port = 4849
+  }
+  ingress	{
+    protocol = "tcp"
+    cidr_blocks = ["208.71.209.32/27"]
+    from_port = 4849
+    to_port = 4849
+  }
+  */
 	ingress	{
 		protocol = "tcp"
 		cidr_blocks = ["${var.monitoringCIDR}"]
