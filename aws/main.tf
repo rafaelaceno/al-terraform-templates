@@ -1,7 +1,5 @@
 // Data sources
-data "aws_region" "current" {
-  current = true
-}
+data "aws_region" "current" {}
 
 // Create a security group policy and setup rules for Threat Manager appliance
 resource "aws_security_group" "tmc_sg" {
