@@ -39,10 +39,6 @@ variable "blob_container_name" {
   description = "Blob container name created within storage account for VM image deployment (ex. vhds)."
 }
 
-variable "availability_set_name" {
-  description = "Availability Set name for the VM."
-}
-
 variable "vm_name" {
   description = "Name your virtual TM machine."
 }

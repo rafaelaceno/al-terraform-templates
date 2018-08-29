@@ -272,6 +272,13 @@ resource "azurerm_network_security_group" "tm_vm_nsg" {
   }
 }
 
+resource "azurerm_availability_set" "tm_availability_set" {
+  name                = "${var.vm_name}-AvailabilitySet1"
+  location            = "${var.location}"
+  resource_group_name = "${var.resource_group_name}"
+  managed             = true
+}
+
 resource "azurerm_network_interface" "tm_vm_ni" {
   name                      = "${var.vm_name}-VirtNic"
   location                  = "${var.location}"
@@ -305,7 +312,7 @@ resource "azurerm_virtual_machine" "tm_vm" {
   resource_group_name   = "${var.resource_group_name}"
   vm_size               = "${var.vm_size}"
   network_interface_ids = ["${azurerm_network_interface.tm_vm_ni.id}"]
-  availability_set_id   = "/subscriptions/${var.subscription_id}/resourceGroups/${var.resource_group_name}/providers/Microsoft.Compute/availabilitySets/${var.availability_set_name}"
+  availability_set_id   = "${azurerm_availability_set.tm_availability_set.id}"
   delete_os_disk_on_termination = true
 
   storage_image_reference {
