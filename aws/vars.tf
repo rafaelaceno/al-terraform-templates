@@ -1,4 +1,26 @@
-# Set variables
+# Specify the provider and access details below
+
+provider "aws" {
+  region     = "${var.aws_region}"
+  access_key = "${var.aws_access_key_id}"
+  secret_key = "${var.aws_secret_access_key}"
+  version    = "~> 1.6"
+}
+
+variable "aws_region" {
+  description = "The AWS region to deploy the appliance in."
+}
+
+variable "aws_access_key_id" {
+  description = "The user access key for authentication."
+}
+
+variable "aws_secret_access_key" {
+  description = "The user secret access key for authentication."
+}
+
+# Set main variables
+
 variable "vpc_id" {
   description = "VPC into which Threat Manager will be deployed (Must have available EIPs)."
 }
