@@ -1,4 +1,4 @@
-# AWS Terraform Template for Alert Logic IDS with CloudWatch Monitoring Feature
+# AWS Terraform Template for Alert Logic IDS with CloudWatch Monitoring
 
 Use this template to deploy Alert Logic IDS into your existing AWS infrasturcture.
 
