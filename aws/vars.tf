@@ -1,4 +1,4 @@
-# Specify the provider and access details below
+// Specify the provider and access details below
 
 provider "aws" {
   region     = "${var.aws_region}"
@@ -19,31 +19,28 @@ variable "aws_secret_access_key" {
   description = "The user secret access key for authentication."
 }
 
-# Set main variables
+// Set main variables
 
 variable "vpc_id" {
-  description = "VPC into which Threat Manager will be deployed (Must have available EIPs)."
+  description = "VPC ID where the IDS instance will be deployed in (Check available EIPs when deploying into a public subnet)."
 }
 
 variable "subnet_id" {
-  description = "ID of a DMZ subnet, with a default route to an IGW, into which Threat Manager will be deployed."
+  description = "Subnet ID where the IDS instance will be dployed in (Must have route to the internet via IGW for public subnet)."
 }
 
 variable "instance_type" {
-  description = "EC2 Instance Type Threat Manager will be spun up as (Supported: c4.large, c4.xlarge, c4.2xlarge, c5.large, c5.xlarge, c5.2xlarge)."
+  description = "IDS EC2 instance type (Supported: c4.large, c4.xlarge, c4.2xlarge, c5.large, c5.xlarge, c5.2xlarge)."
 }
 
-variable "tag_name" {
-  description = "Provide a tag name for your Threat Manager instance."
+variable "name_tag" {
+  description = "Provide a name tag for your IDS instance."
+  default     = "Alert Logic IDS Security Appliance"
 }
 
-variable "tag_env" {
-  description = "Provide a tag env for your Threat Manager instance."
+variable "env_tag" {
+  description = "Provide a tag name of the environment where your IDS instance will be deployed in."
   default     = "alertlogic"
-}
-
-variable "claim_cidr" {
-  description = "CIDR netblock which will be submitting the web form that the appliance serves for claiming over port 80 (This rule can be removed after the appliance has been claimed)."
 }
 
 variable "monitoring_cidr" {
@@ -51,16 +48,22 @@ variable "monitoring_cidr" {
 }
 
 variable "create_eip" {
-  description = "Set value to 1(true) if you want to deploy it on public subnet, otherwise set to 0(false)"
+  description = "Set value to true if you want to deploy it on public subnet, otherwise set to false."
+  default     = "false"
 }
 
-variable "alertlogic_enabled" {
-  description = "Set value to 1(true) if you want to deploy alertlogic tmc instance, otherwise set to 0(false)"
+variable "ids_count" {
+  description = "Number of IDS instances to deploy."
   default     = "1"
 }
 
-# Latest AMI as per Mar 2018, contact AlertLogic (support@alertlogic.com) if you want to see the latest AMI per region
-# Tag to ver: P13
+variable "enable_monitoring" {
+  description = "Launched IDS instance will have detailed monitoring enabled"
+  default     = "true"
+}
+
+// Latest AMI as per Mar 2018, contact AlertLogic (support@alertlogic.com) if you want to see the latest AMI per region
+// Tag to ver: P13
 variable "aws_amis" {
   default = {
     ap-south-1     = "ami-944916fb"
