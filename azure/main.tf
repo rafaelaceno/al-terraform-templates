@@ -115,7 +115,7 @@ resource "azurerm_network_security_group" "tm_vm_nsg" {
   //   destination_address_prefix = "*"
   // }
 
-  security_rule {
+security_rule {
     name                       = "update-rule-1"
     description                = "Allow HTTPs for updates"
     priority                   = 2100
@@ -124,8 +124,8 @@ resource "azurerm_network_security_group" "tm_vm_nsg" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "443"
-    source_address_prefix      = "${var.alertlogicIPRange1}"
-    destination_address_prefix = "*"
+    source_address_prefix      = "*"
+    destination_address_prefix = "${var.alertlogicIPRange1}"
   }
 
   security_rule {
@@ -137,8 +137,8 @@ resource "azurerm_network_security_group" "tm_vm_nsg" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "443"
-    source_address_prefix      = "${var.alertlogicIPRange2}"
-    destination_address_prefix = "*"
+    source_address_prefix      = "*"
+    destination_address_prefix = "${var.alertlogicIPRange2}"
   }
 
   security_rule {
@@ -150,8 +150,8 @@ resource "azurerm_network_security_group" "tm_vm_nsg" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "443"
-    source_address_prefix      = "${var.alertlogicIPRange3}"
-    destination_address_prefix = "*"
+    source_address_prefix      = "*"
+    destination_address_prefix = "${var.alertlogicIPRange3}"
   }
 
   security_rule {
@@ -163,8 +163,8 @@ resource "azurerm_network_security_group" "tm_vm_nsg" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "443"
-    source_address_prefix      = "${var.alertlogicIPRange4}"
-    destination_address_prefix = "*"
+    source_address_prefix      = "*"
+    destination_address_prefix = "${var.alertlogicIPRange4}"
   }
 
   security_rule {
@@ -176,8 +176,8 @@ resource "azurerm_network_security_group" "tm_vm_nsg" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "4138"
-    source_address_prefix      = "${var.alertlogicIPRange1}"
-    destination_address_prefix = "*"
+    source_address_prefix      = "*"
+    destination_address_prefix = "${var.alertlogicIPRange1}"
   }
 
   security_rule {
@@ -189,8 +189,8 @@ resource "azurerm_network_security_group" "tm_vm_nsg" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "4138"
-    source_address_prefix      = "${var.alertlogicIPRange2}"
-    destination_address_prefix = "*"
+    source_address_prefix      = "*"
+    destination_address_prefix = "${var.alertlogicIPRange2}"
   }
 
   security_rule {
@@ -202,8 +202,8 @@ resource "azurerm_network_security_group" "tm_vm_nsg" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "4138"
-    source_address_prefix      = "${var.alertlogicIPRange3}"
-    destination_address_prefix = "*"
+    source_address_prefix      = "*"
+    destination_address_prefix = "${var.alertlogicIPRange3}"
   }
 
   security_rule {
@@ -215,8 +215,8 @@ resource "azurerm_network_security_group" "tm_vm_nsg" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "4138"
-    source_address_prefix      = "${var.alertlogicIPRange4}"
-    destination_address_prefix = "*"
+    source_address_prefix      = "*"
+    destination_address_prefix = "${var.alertlogicIPRange4}"
   }
 
   security_rule {
@@ -228,8 +228,8 @@ resource "azurerm_network_security_group" "tm_vm_nsg" {
     protocol                   = "*"
     source_port_range          = "*"
     destination_port_range     = "53"
-    source_address_prefix      = "8.8.4.4/32"
-    destination_address_prefix = "*"
+    source_address_prefix      = "*"
+    destination_address_prefix = "8.8.4.4/32"
   }
 
   security_rule {
@@ -241,8 +241,8 @@ resource "azurerm_network_security_group" "tm_vm_nsg" {
     protocol                   = "*"
     source_port_range          = "*"
     destination_port_range     = "53"
-    source_address_prefix      = "8.8.8.8/32"
-    destination_address_prefix = "*"
+    source_address_prefix      = "*"
+    destination_address_prefix = "8.8.8.8/32"
   }
 
   security_rule {
@@ -254,8 +254,8 @@ resource "azurerm_network_security_group" "tm_vm_nsg" {
     protocol                   = "Udp"
     source_port_range          = "*"
     destination_port_range     = "123"
-    source_address_prefix      = "${var.alertlogicIPRange2}"
-    destination_address_prefix = "*"
+    source_address_prefix      = "*"
+    destination_address_prefix = "${var.alertlogicIPRange2}"
   }
 
   security_rule {
@@ -267,8 +267,8 @@ resource "azurerm_network_security_group" "tm_vm_nsg" {
     protocol                   = "Udp"
     source_port_range          = "*"
     destination_port_range     = "123"
-    source_address_prefix      = "${var.alertlogicIPRange3}"
-    destination_address_prefix = "*"
+    source_address_prefix      = "*"
+    destination_address_prefix = "${var.alertlogicIPRange3}"
   }
 }
 
