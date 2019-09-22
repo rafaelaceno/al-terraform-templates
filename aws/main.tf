@@ -5,7 +5,7 @@ data "aws_region" "current" {}
 resource "aws_security_group" "tmc_sg" {
   name = "Alert Logic Threat Manager Security Group"
 
-  tags {
+  tags = {
     Name = "Alert Logic Threat Manager Security Group"
   }
 
@@ -147,7 +147,7 @@ resource "aws_instance" "tmc" {
   subnet_id              = "${var.subnet_id}"
   vpc_security_group_ids = ["${aws_security_group.tmc_sg.id}"]
 
-  tags {
+  tags = {
     Name = "${var.tag_name}"
     env  = "${var.tag_env}"
   }
@@ -157,6 +157,6 @@ resource "aws_instance" "tmc" {
 resource "aws_eip" "tmc" {
   depends_on = ["aws_instance.tmc"]
   count      = "${var.alertlogic_enabled == 1 ? var.create_eip : 0}"
-  instance   = "${aws_instance.tmc.id}"
+  instance   = "${  aws_instance.tmc[count.index]}"
   vpc        = true
 }
